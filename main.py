@@ -1,16 +1,21 @@
 import asyncio
 import signal
 import sys
+import os
+from dotenv import load_dotenv
 from pymongo import MongoClient
 from blockchain_listener import BlockchainListener
 from mongodb import MongoDB
 
+load_dotenv()
+
 # Thông tin kết nối MongoDB
-MONGODB_URL = "mongodb://huy:12345678@localhost:27017"
-DB_NAME = "AgriDB"
+MONGODB_URL = os.getenv("MONGODB_URL")
+DB_NAME = os.getenv("DB_NAME")
+
 
 # Thông tin kết nối Blockchain
-BLOCKCHAIN_ENDPOINT = "https://evmos-pokt.nodies.app"
+BLOCKCHAIN_ENDPOINT = os.getenv("BLOCKCHAIN_ENDPOINT")
 
 # Khởi tạo biến listener để đảm bảo nó được khai báo trước khi sử dụng
 listener = None
