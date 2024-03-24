@@ -30,7 +30,7 @@ class MongoDB:
             accounts = list(collection.find({'status': 'active'}, {'walletAddress': 1, '_id': 0}))  # Chỉ lấy trường "account"
             accounts_list = []
             for account in accounts:  # Await the cursor iteration
-                if 'walletAddress' in account:
+                if 'walletAddress' in account and account['walletAddress'] != '' and account['walletAddress']:
                     accounts_list.append(account['walletAddress'])
             return accounts_list  # Trả về danh sách các tài khoản
         except Exception as e:
@@ -38,16 +38,17 @@ class MongoDB:
             raise e
 
 
-    async def saveEvent(self, tx_from, tx_fee, tx_timestamp, event_name):
+    async def saveEvent(self, tx_from, tx_fee, tx_timestamp, event_name, tx_hash):
         try:
             collection = self.db['Events']
             collection.insert_one({
                 'walletAddress': tx_from,
                 'fee': tx_fee,
                 'timestamp': tx_timestamp,
-                'event': event_name
+                'event': event_name,
+                'tx': tx_hash
             })
-            print('Event saved to MongoDB:', tx_from, tx_fee, tx_timestamp, event_name)
+            print('Event saved to MongoDB:', tx_from, tx_fee, tx_timestamp, event_name, tx_hash)
         except Exception as e:
             print('Error saving event to MongoDB:', e)
             raise e

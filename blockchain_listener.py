@@ -88,7 +88,7 @@ class BlockchainListener:
                 print("Event:", event_name)
 
                 # Lưu giao dịch vào MongoDB
-                await self.db.saveEvent(tx_from, tx_fee, tx_timestamp, event_name)
+                await self.db.saveEvent(tx_from, tx_fee, tx_timestamp, event_name, tx_hash)
 
 
 
