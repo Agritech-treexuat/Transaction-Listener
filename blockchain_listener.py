@@ -11,10 +11,12 @@ class BlockchainListener:
         self.db = db
         self.last_block_number = None
 
-    async def listenToBlockchainEvents(self, accounts):
+    async def listenToBlockchainEvents(self):
         try:
-            print('Listening to blockchain events for accounts:', accounts)
+            
             while True:
+                accounts = await self.db.getAccounts()
+                print('Listening to blockchain events for accounts:', accounts)
                 latest_block_number = self.web3.eth.get_block_number()
                 print('Latest block number:', latest_block_number)
 

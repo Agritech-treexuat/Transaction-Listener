@@ -30,14 +30,14 @@ async def main():
         await db.connect()
 
         # Lấy danh sách các tài khoản từ MongoDB
-        accounts = await db.getAccounts()
-        print('Accounts:', accounts)
+        # accounts = await db.getAccounts()
+        # print('Accounts:', accounts)
 
         # Khởi tạo lớp lắng nghe blockchain
         listener = BlockchainListener(BLOCKCHAIN_ENDPOINT, db)
 
         # Bắt đầu lắng nghe sự kiện từ blockchain cho các tài khoản đã được lấy
-        await listener.listenToBlockchainEvents(accounts)
+        await listener.listenToBlockchainEvents()
 
         # Bắt tín hiệu kết thúc chương trình (Ctrl+C)
         signal.signal(signal.SIGINT, signal_handler)
