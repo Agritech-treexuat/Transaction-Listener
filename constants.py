@@ -9,7 +9,9 @@ event_map = {
     '0xe': { 'name': 'ImageInserted' },
     '0xf': { 'name': 'WeatherInserted' },
     '0xf98fb96e12314e75bed7f8fa15959c9227cbdb7aa8774dc674ebe16c3780b7e8': { 'name': 'InputUpdated' },
-    '0x11': { 'name': 'ProcessUpdated' },
+    '0x86ca012eeec5179616b871b1e8eac5e98a1abb80d429d200ae965170463ba85f': { 'name': 'ProcessUpdated' },
     '0xd6e26280f779e80f6b6156ad164395e84a85d1f3ec41c70adb37cf41e743a2eb': { 'name': 'ExpectUpdated' },
-    '0x2e8e85ac143af4ef00d5b2faf8dbf69ab450d72e9ac6f2f4236b818e2a0631ff': { 'name': 'OutputUpdated' }
+    '0x2e8e85ac143af4ef00d5b2faf8dbf69ab450d72e9ac6f2f4236b818e2a0631ff': { 'name': 'OutputUpdated' },
+    '0x3fee1c70ec084e00a256424ab31507324668a0b12407659524b766ac1d43cea5': { 'name': 'CameraAdded' },
+    '0x5b09ec3fe7870357cbc45ef4e1d69860d921f49908dd748edeeaefc8158864db': { 'name': 'QRGenerated' },
 }
